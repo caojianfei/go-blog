@@ -6,7 +6,7 @@ import (
 
 type UserController struct {}
 
-func (ac *UserController) Get(ctx iris.Context) {
+func (ac *UserController) GetLogin(ctx iris.Context) {
 	//fmt.Println(ctx.Request().Method)
 	err := ctx.View("admin/user/login.html")
 	if err != nil {
