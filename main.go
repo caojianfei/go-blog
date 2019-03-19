@@ -8,7 +8,10 @@ import (
 
 func main() {
 	app := iris.New()
-	app.RegisterView(iris.HTML("./web/views", ".html"))
+	app.RegisterView(iris.HTML("./web/views", ".html").Reload(true))
+
+	// 静态资源服务
+	app.StaticWeb("/static", "./web/static")
 
 	// 管理端路由
 	mvc.Configure(app.Party("/admin"), adminRouter)
